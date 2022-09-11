@@ -1,11 +1,14 @@
+import numpy as np
+
+
 def BarnsleyFern(iters=100000):
     
     x_coords = []
     y_coords = []
+    
+    # Input matrices
     z = [[1.0],
          [1.0]]
-    
-    # Matrices
     a = [0.00, 0.85, 0.20, -0.15]
     b = [0.00, 0.04, -0.26, 0.28]
     c = [0.00, -0.04, 0.23, 0.26]
@@ -14,8 +17,8 @@ def BarnsleyFern(iters=100000):
     f = [0.00, 1.60, 1.60, 0.44]
     p = [0.01, 0.85, 0.07, 0.07] # probabilities
     
+    # Matrix operations
     for _ in range(iters):
-        # Equations
         i = np.random.choice(np.arange(4), p=p)
         A = np.array([[a[i], b[i]],
                       [c[i], d[i]]])
@@ -29,6 +32,7 @@ def BarnsleyFern(iters=100000):
     return x_coords, y_coords
 
 
+
 def SierpinskiTriangle(size=1024):
 
     first_row = np.zeros(size, dtype=int)
@@ -37,7 +41,6 @@ def SierpinskiTriangle(size=1024):
     rows[0] = first_row
     
     for i in range(1,int(size/2)):
-        
         rows[i] = (np.roll(rows[i-1],-1) + rows[i-1] + np.roll(rows[i-1],1)) % 2
         
     m = int(np.log(size)/np.log(2))
