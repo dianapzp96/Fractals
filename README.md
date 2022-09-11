@@ -1,2 +1,2 @@
 # Fractals
-Fractal geomtries created in Python
+Fractal geometries created in Python
