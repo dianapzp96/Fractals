@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def BarnsleyFern(iters=100000):
+def BarnsleyFern(iters=1000000):
     
     x_coords = []
     y_coords = []
